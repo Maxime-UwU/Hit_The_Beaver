@@ -35,7 +35,6 @@ public class Mole : MonoBehaviour
         }
         else
         {
-            textScore.SetActive(false);
             textCombo.SetActive(false);
             textLives.SetActive(false);
             retry.SetActive(true);
@@ -54,7 +53,6 @@ public class Mole : MonoBehaviour
 
     public void Retry()
     {
-        textScore.SetActive(true);
         textLives.SetActive(true);
         textCombo.SetActive(true);
         retry.SetActive(false);
