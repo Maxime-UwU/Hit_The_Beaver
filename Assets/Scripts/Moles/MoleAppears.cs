@@ -19,7 +19,9 @@ public class MoleAppears : MonoBehaviour
             Mole = GameObject.Find("Mole.0" + moleNumberFormatted);
         }
         Debug.Log(moleNumber);
-        Mole.transform.position = new Vector3(Mole.transform.position.x + 10, 10, 10);
+        GameObject.Instantiate(Mole);
+
+        //Mole.transform.position = new Vector3(Mole.transform.position.x + 10, 10, 10);
     }
 
     // Update is called once per frame
