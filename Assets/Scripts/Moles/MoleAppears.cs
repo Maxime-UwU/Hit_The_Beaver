@@ -4,24 +4,11 @@ using UnityEngine;
 
 public class MoleAppears : MonoBehaviour
 {
-    GameObject cat;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Mole;
-        int moleNumber = Random.Range(0, 20);
-        if (moleNumber == 0)
-        {
-            Mole = GameObject.Find("Mole");
-        } else
-        {
-            string moleNumberFormatted = moleNumber.ToString("D2");
-            Mole = GameObject.Find("Mole.0" + moleNumberFormatted);
-        }
-        Debug.Log(moleNumber);
-        GameObject.Instantiate(Mole);
-
-        //Mole.transform.position = new Vector3(Mole.transform.position.x + 10, 10, 10);
+        RandomMole();
     }
 
     // Update is called once per frame
@@ -32,6 +19,32 @@ public class MoleAppears : MonoBehaviour
 
     private void RandomMole()
     {
+        GameObject Mole;
+        int moleNumber = Random.Range(0, 20);
+        string moleName;
+        if (moleNumber == 0)
+        {
+            moleName = "Mole";
+            Mole = GameObject.Find(moleName);
+        }
+        else
+        {
+            string moleNumberFormatted = moleNumber.ToString("D2");
+            moleName = "Mole.0" + moleNumberFormatted;
+            Mole = GameObject.Find(moleName);
+        }
+        Debug.Log(moleNumber);
+        GameObject.Instantiate(Mole);
+        StartCoroutine(DeleteMole(moleName));
 
+        //Mole.transform.position = new Vector3(Mole.transform.position.x + 10, 10, 10);
+    }
+
+    private IEnumerator DeleteMole(string mole)
+    {
+        yield return new WaitForSeconds(5f);
+        Debug.Log(mole);
+        GameObject LastMole = GameObject.Find(mole + "(Clone)");
+        Destroy(LastMole);
     }
 }
