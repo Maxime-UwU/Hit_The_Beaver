@@ -14,7 +14,7 @@ public class RespawnHammer : MonoBehaviour
         if (isColliding) return;
         isColliding = true;
         Destroy(Hammer.gameObject.transform.parent.gameObject) ; 
-        Instantiate(NewHammer, new Vector3(0f, 1f, 0f), Quaternion.identity);
+        Instantiate(NewHammer, new Vector3(0.89f, 0.52f, -2.34f), Quaternion.identity);
         StartCoroutine(Reset());
 
         
