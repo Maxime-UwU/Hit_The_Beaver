@@ -24,7 +24,7 @@ public class MoleAppears : MonoBehaviour
         alreadyMole = true;
 
         int moleIndex = Random.Range(0, MolePrefabs.Length);
-        int holeIndex = Random.Range(1, 6);
+        int holeIndex = Random.Range(1, 12);
         GameObject Mole = MolePrefabs[moleIndex];
         string HoleName = "Hole" + holeIndex;
         GameObject Hole = GameObject.Find(HoleName);
