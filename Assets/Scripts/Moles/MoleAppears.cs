@@ -5,6 +5,7 @@ using DG.Tweening;
 public class MoleAppears : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
+    [SerializeField] private Mole moleFlee;
     public GameObject[] MolePrefabs;
     public GameObject Holes;
     private bool alreadyMole = false;
@@ -36,6 +37,7 @@ public class MoleAppears : MonoBehaviour
             newMole.transform.DOMove(new Vector3(holePosition.x, holePosition.y, holePosition.z), 1);
             yield return new WaitForSeconds(1.5f);
             StartCoroutine(DeleteMole(newMole));
+            moleFlee.OnMoleFlee();
             if (gameData.getLives() == 0)
             {
                 stopSpawning = true; 
@@ -54,6 +56,7 @@ public class MoleAppears : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Destroy(moleInstance);
             alreadyMole = false;
+            
         }
     }
 
