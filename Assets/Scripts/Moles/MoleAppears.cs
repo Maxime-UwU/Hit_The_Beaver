@@ -15,7 +15,6 @@ public class MoleAppears : MonoBehaviour
 
     private IEnumerator RandomMole()
     {
-
         if (alreadyMole)
         {
             yield break;
@@ -35,16 +34,19 @@ public class MoleAppears : MonoBehaviour
         GameObject newMole = Instantiate(Mole, holePosition, Hole.transform.rotation);
         holePosition.y += 1;
         newMole.transform.DOMove(new Vector3(holePosition.x, holePosition.y, holePosition.z), 1);
-        yield return new WaitForSeconds(1.5f);
 
+        // Ajouter le script MoleInteraction pour gérer les collisions (voir ci-dessous)
+        if (newMole.GetComponent<MoleInteraction>() == null)
+        {
+            newMole.AddComponent<MoleInteraction>().SetParent(this);
+        }
+
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(DeleteMole(newMole));
     }
 
-
-    // a appeler quand le marteau touche une taupe
-    private IEnumerator DeleteMole(GameObject moleInstance)
+    public IEnumerator DeleteMole(GameObject moleInstance)
     {
-
         if (moleInstance != null)
         {
             Vector3 molePosition = moleInstance.transform.position;
@@ -55,7 +57,6 @@ public class MoleAppears : MonoBehaviour
             alreadyMole = false;
             StartCoroutine(RandomMole());
         }
-
-
     }
 }
+
