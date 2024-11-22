@@ -35,12 +35,6 @@ public class MoleAppears : MonoBehaviour
         holePosition.y += 1;
         newMole.transform.DOMove(new Vector3(holePosition.x, holePosition.y, holePosition.z), 1);
 
-        // Ajouter le script MoleInteraction pour gérer les collisions (voir ci-dessous)
-        if (newMole.GetComponent<MoleInteraction>() == null)
-        {
-            newMole.AddComponent<MoleInteraction>().SetParent(this);
-        }
-
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(DeleteMole(newMole));
     }
