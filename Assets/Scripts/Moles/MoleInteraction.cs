@@ -22,7 +22,7 @@ public class MoleInteraction : MonoBehaviour
             gameData.setIsMoleHit(true);
             StartCoroutine(moleManager.DeleteMole(gameObject));
             moleHitted.OnMoleHit();
-            
+            gameData.setIsMoleHit(false);
 
             Debug.Log("Taupe supprimée");
             
