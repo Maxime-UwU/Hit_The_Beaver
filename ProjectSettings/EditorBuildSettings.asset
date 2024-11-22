@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HammerTime.unity
+    guid: 5f872059c5748b44cb03067f019cf67c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 439d1537483214693b442b6301d31391, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 21690395dbceb4973b4232932ab2bacf, type: 2}
