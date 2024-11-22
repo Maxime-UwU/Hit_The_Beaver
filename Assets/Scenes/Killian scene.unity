@@ -2518,6 +2518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: d4f887cb5b3f29442b65696acb571355, type: 2}
+  moleFlee: {fileID: 1604612150}
   MolePrefabs:
   - {fileID: 156480768137580620, guid: 61aa71823bfe38448af93b084aff4e11, type: 3}
   - {fileID: 7020544162711680087, guid: 7d382eedf85cd76418f47143d9f647a0, type: 3}
