@@ -11,7 +11,7 @@ public class MoleAppears : MonoBehaviour
     private bool alreadyMole = false;
     private bool stopSpawning = false;
 
-    private IEnumerator RandomMole()
+    public IEnumerator RandomMole()
     {
         if (alreadyMole)
         while (gameData.getLives() > 0 && !stopSpawning)
@@ -44,24 +44,6 @@ public class MoleAppears : MonoBehaviour
                 stopSpawning = true; 
             }
         }
-
-        alreadyMole = true;
-
-        int moleIndex = Random.Range(0, MolePrefabs.Length);
-        int holeIndex = Random.Range(1, 12);
-        GameObject Mole = MolePrefabs[moleIndex];
-        string HoleName = "Hole" + holeIndex;
-        GameObject Hole = GameObject.Find(HoleName);
-
-        Vector3 holePosition = Hole.transform.position;
-        holePosition.y -= 1;
-
-        GameObject newMole = Instantiate(Mole, holePosition, Hole.transform.rotation);
-        holePosition.y += 1;
-        newMole.transform.DOMove(new Vector3(holePosition.x, holePosition.y, holePosition.z), 1);
-
-        yield return new WaitForSeconds(1.5f);
-        StartCoroutine(DeleteMole(newMole));
     }
 
     public IEnumerator DeleteMole(GameObject moleInstance)
