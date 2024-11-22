@@ -14,7 +14,7 @@ public class Mole : MonoBehaviour
     [SerializeField]
     private GameObject textCombo;
     [SerializeField]
-    private GameObject retry;
+    private GameObject start;
     [SerializeField]
     private MoleAppears moleAppears;
 
@@ -39,7 +39,7 @@ public class Mole : MonoBehaviour
         {
             textCombo.SetActive(false);
             textLives.SetActive(false);
-            retry.SetActive(true);
+            start.SetActive(true);
         }
     }
 
@@ -48,17 +48,12 @@ public class Mole : MonoBehaviour
         gameData.setScore(0);
         gameData.setLives(3);
         gameData.setCombo(0);
+        textCombo.SetActive(true);
+        textLives.SetActive(true);
         textScore.GetComponent<TextMeshProUGUI>().text = "Score : " + gameData.getScore();
         textLives.GetComponent<TextMeshProUGUI>().text = "Vies restantes : " + gameData.getLives();
         textCombo.GetComponent<TextMeshProUGUI>().text = "Combo : " + gameData.getCombo();
         StartCoroutine(moleAppears.RandomMole());
-    }
-
-    public void Retry()
-    {
-        textLives.SetActive(true);
-        textCombo.SetActive(true);
-        retry.SetActive(false);
-        StartGame();
+        start.SetActive(false);
     }
 }
