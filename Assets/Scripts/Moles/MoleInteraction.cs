@@ -14,11 +14,10 @@ public class MoleInteraction : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifie si l'objet entrant est le marteau
-        if (other.gameObject.CompareTag("Hammer")) // Assurez-vous que le marteau a le tag "Hammer"
+        
+        if (other.gameObject.CompareTag("Hammer"))
         {
             Debug.Log("Taupe touchée");
-            // Supprime la taupe via le script parent
             StartCoroutine(moleManager.DeleteMole(gameObject));
             moleHitted.OnMoleHit();
             Debug.Log("Taupe supprimée");
