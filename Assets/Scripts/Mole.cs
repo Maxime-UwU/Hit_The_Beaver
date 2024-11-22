@@ -15,6 +15,8 @@ public class Mole : MonoBehaviour
     private GameObject textCombo;
     [SerializeField]
     private GameObject retry;
+    [SerializeField]
+    private MoleAppears moleAppears;
 
     public void OnMoleHit()
     {
@@ -26,9 +28,9 @@ public class Mole : MonoBehaviour
 
     public void OnMoleFlee()
     {
-        if(gameData.getLives() > 1)
+        gameData.setLives(gameData.getLives() - 1);
+        if (gameData.getLives() >= 1)
         {
-            gameData.setLives(gameData.getLives() - 1);
             gameData.setCombo(0);
             textLives.GetComponent<TextMeshProUGUI>().text = "Vies restantes : " + gameData.getLives();
             textCombo.GetComponent<TextMeshProUGUI>().text = "Combo : " + gameData.getCombo();
@@ -49,6 +51,7 @@ public class Mole : MonoBehaviour
         textScore.GetComponent<TextMeshProUGUI>().text = "Score : " + gameData.getScore();
         textLives.GetComponent<TextMeshProUGUI>().text = "Vies restantes : " + gameData.getLives();
         textCombo.GetComponent<TextMeshProUGUI>().text = "Combo : " + gameData.getCombo();
+        StartCoroutine(moleAppears.RandomMole());
     }
 
     public void Retry()
