@@ -13,7 +13,6 @@ public class MoleAppears : MonoBehaviour
 
     public IEnumerator RandomMole()
     {
-        if (alreadyMole)
         while (gameData.getLives() > 0 && !stopSpawning)
         {
             if (alreadyMole)
