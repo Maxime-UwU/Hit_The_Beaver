@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962c38f48a4da384082af7aa187b0027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: d4f887cb5b3f29442b65696acb571355, type: 2}
   moleManager: {fileID: 5670070123967701643, guid: ca238c99863405d42affc5c7553f55c6, type: 3}
 --- !u!65 &-8180525853212920281
 BoxCollider:
