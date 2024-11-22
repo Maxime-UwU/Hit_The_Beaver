@@ -64,7 +64,7 @@ public class MoleAppears : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Destroy(moleInstance);
             alreadyMole = false;
-            
+            gameData.setIsMoleHit(false);
         }
     }
 
