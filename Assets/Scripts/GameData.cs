@@ -9,6 +9,7 @@ public class GameData: ScriptableObject
     [SerializeField] private int score;
     [SerializeField] private int lives;
     [SerializeField] private int combo;
+    private bool isMolehit = false;
 
     public void setScore(int score) { this.score = score; }
 
@@ -16,9 +17,13 @@ public class GameData: ScriptableObject
 
     public void setLives(int lives) { this.lives = lives; }
 
+    public void setIsMoleHit(bool isMoleHit) { this.isMolehit = isMoleHit; }
+
     public int getScore() { return score; }
 
     public int getCombo() { return combo; }
 
     public int getLives() { return lives; }
+
+    public bool getIsMoleHit() { return isMolehit; }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoleInteraction : MonoBehaviour
 {
+    [SerializeField] private GameData gameData;
     [SerializeField]
     private MoleAppears moleManager;
     
@@ -18,8 +19,11 @@ public class MoleInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Hammer"))
         {
             Debug.Log("Taupe touchée");
+            gameData.setIsMoleHit(true);
             StartCoroutine(moleManager.DeleteMole(gameObject));
             moleHitted.OnMoleHit();
+            
+
             Debug.Log("Taupe supprimée");
             
         }
